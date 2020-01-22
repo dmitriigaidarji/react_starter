@@ -67,7 +67,14 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader'
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true
+            }
+          }
         ]
       },
       {
@@ -82,6 +89,7 @@ module.exports = {
         use: [
           {loader: "style-loader"},
           {loader: "css-loader"},
+          {loader: "resolve-url-loader"},
           {loader: "sass-loader"}
         ]
       }
